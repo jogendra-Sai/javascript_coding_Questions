@@ -68,3 +68,73 @@ const avgSalaryBydept = Object.keys(employeesBydepartment).map(department=>{
 })
 const output = avgSalaryBydept.filter(item=>item.average > 65000)
 console.log(output)
+
+
+
+
+
+
+var voters = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Phil' , age: 21, voted: true},
+    {name:'Ed' , age:55, voted:true},
+    {name:'Tami' , age: 54, voted:true},
+    {name: 'Mary', age: 31, voted: false},
+    {name: 'Becky', age: 43, voted: false},
+    {name: 'Joey', age: 41, voted: true},
+    {name: 'Jeff', age: 30, voted: true},
+    {name: 'Zack', age: 19, voted: false}
+];
+
+  const votesData = voters.map((item)=> {
+      let wholeData = {}
+      if(item.age >= 18 && item.age <= 25){
+          return {...item,category:"YoungPeople"};
+      }else if(item.age >= 26 && item.age <= 35) {
+           return {...item,category:"MidsPeople"};
+      }
+      else{
+           return {...item,category:"OldPeople"};
+      }
+  }).reduce((acc,curr) => {
+      const category = curr.category;
+      if(!acc[category]){
+          acc[category] = [];
+      }
+      acc[category].push(curr)
+      return acc;
+  },{})
+
+
+console.log(votesData);
+const avg = Object.keys(votesData).map((category) => {
+   if(category === "YoungPeople"){
+       return {numYoungPeople:votesData[category].length,numYoungVotes:votesData[category].filter((item)=>item.voted === true).length}
+    }else if(category === "MidsPeople"){
+        return {numMidsPeople:votesData[category].length,numMidVotesPeople:votesData[category].filter((item)=>item.voted === true).length}
+    }else{
+         return {numOldsPeople:votesData[category].length,numOldVotesPeople:votesData[category].filter((item)=>item.voted === true).length}
+    }
+}).reduce((acc,obj)=>{
+    return {...acc,...obj}
+},{})
+console.log(avg)
+
+
+// if(category === "YoungPeople"){
+//         const obj = {numYoungPeople:voterResults[category].length,numYoungVotes:voterResults[category].filter((item)=>item.voted === true)}
+//         return obj
+//     }
+// Returned value shown below:
+/*
+{ numYoungVotes: 1,
+  numYoungPeople: 4,
+  numMidVotesPeople: 3,
+  numMidsPeople: 4,
+  numOldVotesPeople: 3,
+  numOldsPeople: 4 
+}
+*/
