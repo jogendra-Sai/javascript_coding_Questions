@@ -37,3 +37,34 @@ const avgPriceByCategory = Object.keys(productsByCategory).map(category=>{
     return {category:category,average:sum/productsByCategory[category].length}
 })
 console.log(avgPriceByCategory)
+
+
+
+
+const employees = [
+  { name: "John", salary: 50000, department: "IT" },
+  { name: "Jane", salary: 60000, department: "HR" },
+  { name: "Bob", salary: 55000, department: "IT" },
+  { name: "Sophie", salary: 75000, department: "HR" },
+  { name: "Mike", salary: 65000, department: "IT" },
+  { name: "Emily", salary: 80000, department: "HR" },
+  { name: "David", salary: 70000, department: "IT" },
+];
+
+const employeesBydepartment = employees.reduce((acc,emp)=>{
+    const department = emp.department;
+    if(!acc[department]){
+        acc[department]=[];
+    }
+    acc[department].push(emp)
+    return acc;
+},{})
+
+console.log(employeesBydepartment)
+
+const avgSalaryBydept = Object.keys(employeesBydepartment).map(department=>{
+    const sum = employeesBydepartment[department].reduce((acc,curr)=>acc+curr.salary,0)
+    return {department:department,average:Math.round(sum/employeesBydepartment[department].length)}
+})
+const output = avgSalaryBydept.filter(item=>item.average > 65000)
+console.log(output)
