@@ -1,3 +1,4 @@
+
 //String Methods
 //Replace
 const message = "Javascript is fun. Javascript is awesome";
@@ -63,3 +64,58 @@ function anagramCheck(str1,str2){
    return str1.split("").sort().join("") === str2.split("").sort().join("");
 }
 console.log(anagramCheck("listen","silent"))
+
+//Remove Duplictates from string
+function removeDuplicates(str){
+    let newString=[];
+    for(let i = 0; i < str.length; i++){
+          if(!newString.includes(str[i])){
+              newString.push(str[i])
+          }
+    }
+    return newString.join("");
+}
+
+console.log(removeDuplicates("ammaanna"))
+
+//Capitalize the First Letter of the string
+
+function ToUpperCase(str){
+    return str.split(" ").map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(" ")
+}
+
+console.log(ToUpperCase("jogendra sai"))
+
+//console.log(compressString('aabcccccaaa')); // Output: 'a2b1c5a3'
+
+function compressString(str){
+    let compressStr = "";
+    let count = 1;
+    for(let i = 0; i < str.length; i++){
+        if(str[i] === str[i+1]){
+            count++
+        }else{
+             compressStr += str[i] + count;
+             count = 1;
+        }
+       
+    }
+    return compressStr.length < str.length ? compressStr : str;
+}
+
+console.log(compressString('ddddddffrrrf'))
+
+function groupAnagrams(words){
+    let anagramGroups = {};
+    for(let word of words){
+        const splitedWord = word.split("").sort().join();
+        if(!anagramGroups[splitedWord]){
+            anagramGroups[splitedWord] = [];
+        }
+        anagramGroups[splitedWord].push(word)
+    }
+    return Object.values(anagramGroups)
+}
+
+
+console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']));
