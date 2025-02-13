@@ -34,7 +34,6 @@ Promise.all([func1(),func2(),func3()]).then(dataArrayValues=>{
 
 //Promise AllSettled Example
 
-//Promise All example
 const func1 = () =>{
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
