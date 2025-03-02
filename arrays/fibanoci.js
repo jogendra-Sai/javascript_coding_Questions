@@ -5,6 +5,6 @@ function fibnociSequence(n){
         series.push(series[i-1]+series[i-2])
     }
     
-   console.log(series)
+   return series;
 }
 console.log(fibnociSequence(10))
