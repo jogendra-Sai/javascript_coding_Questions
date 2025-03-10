@@ -14,9 +14,18 @@ console.log(reverseString("Hello Iam Jogendra"))
 function reverseString1(str) {
     let result = ""
     for (let i = str.length - 1; i >= 0; i--) {
-       result += str[i]
+        result += str[i]
     }
     return result;
 }
 
 console.log(reverseString1("jogendra"))
+
+// Write a javascript function that reverses the order of words 
+// in a sentence without using the built-in reverse() method.
+
+function reverseWords(words) {
+
+}
+console.log("Reverse words", reverseWords("Hello Jogendra how are you"))
+
