@@ -1,3 +1,4 @@
+// https://www.geeksforgeeks.org/javascript-promise/
 const promise1 = new Promise((resolve,reject)=>{
     setTimeout(()=>{
         resolve("Promise1 resolved")
