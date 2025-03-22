@@ -1,3 +1,6 @@
+https://medium.com/@francesco.saviano87/10-exercises-to-master-promises-in-javascript-hands-on-examples-with-detailed-explanations-b2cf4b948647
+
+
 //Promise All example
 const func1 = () =>{
     return new Promise((resolve,reject)=>{
